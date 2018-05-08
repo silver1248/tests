@@ -7,7 +7,7 @@ public class Alpha {
 		final int end = 30;
 //		System.out.println("this is a testrun 1");
 		System.out.println("Hi my name is DORIAN");
-	    System.out.print(String.format(''%s ));
+	    System.out.print(String.format("%s","string" ));
 		for (int x2 = start; x2 <= end; x2 = x2+1) {
 //			System.out.println("this is a testrun 2");
 			
