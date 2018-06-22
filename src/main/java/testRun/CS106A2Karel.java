@@ -5,21 +5,13 @@ public class CS106A2Karel {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		turnLeft();
-		goToCeiling();
-		goToFloor();
-		goToNextColumn();
-		goToCeiling();
-		goToFloor();
-		goToNextColumn();
-		goToCeiling();
-		goToFloor();
-		goToNextColumn();
-		goToCeiling();
-		goToFloor();
-		turnLeft();
-	}	
+		while (notBlockedByWall() && notBlockedOnLeft()){
+			turnLeft();
+			goToCeiling();
+			goToFloor();
+			goToNextColumn();
+		}
+	}
 
 	private static void goToCeiling(){
 		while (notBlockedByWall()){
@@ -54,7 +46,13 @@ public class CS106A2Karel {
 		turnLeft();
 		turnLeft();
 	}
-
+	
+	private static void turnRight(){
+	turnLeft();
+	turnLeft();
+	turnLeft();
+	}
+	
 	private static void move(){
 		System.out.println("move");
 	}
@@ -65,7 +63,7 @@ public class CS106A2Karel {
 
 	private static boolean noBeepersPresent(){
 		System.out.println("noBeeperspresent");
-		return (true);
+		return true;
 	}
 
 	private static void putBeeper(){
@@ -74,6 +72,37 @@ public class CS106A2Karel {
 
 	private static boolean notBlockedByWall(){
 		System.out.println("notBlokedByWall");
-		return(true);
+		return true;
 	}
+
+	
+	private static boolean notBlockedOnLeft(){
+		turnLeft();
+		boolean notBlocked = notBlockedByWall();
+		turnRight();
+		return notBlocked;
+	}
+
+
+	private static boolean notBlockedOnLeft2(){
+		turnLeft();
+		if (notBlockedByWall()) {
+			turnRight();
+			return true;
+		} else {
+			turnRight();
+			return false;
+		}
+	}
+
+	private static boolean notBlockedOnLeft3(){
+		turnLeft();
+		return turnRightThenValue(notBlockedByWall());
+	}
+
+	private static boolean turnRightThenValue(boolean notBlockedByWall) {
+		turnRight();
+		return notBlockedByWall;
+	}
+
 }
