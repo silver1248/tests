@@ -1,11 +1,13 @@
 package testRun;
 
 
-public class CS106A2Karel {
+public class CS106A2Karel extends Karel {
+    static {
+        room = new int[] {5,3,3,3,6};
+    }
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		while (notBlockedByWall() && notBlockedOnLeft()){
+		while (notBlockedByWall() || notBlockedOnLeft()){
 			turnLeft();
 			goToCeiling();
 			goToFloor();
@@ -13,8 +15,8 @@ public class CS106A2Karel {
 		}
 	}
 
-	private static void goToCeiling(){
-		while (notBlockedByWall()){
+	private static void goToCeiling() {
+		while (notBlockedByWall()) {
 			if (noBeepersPresent()) {
 				putBeeper();
 			}
@@ -53,14 +55,6 @@ public class CS106A2Karel {
 	turnLeft();
 	}
 	
-	private static void move(){
-		System.out.println("move");
-	}
-
-	private static void turnLeft(){
-		System.out.println("turnLeft");
-	}
-
 	private static boolean noBeepersPresent(){
 		System.out.println("noBeeperspresent");
 		return true;
@@ -69,12 +63,6 @@ public class CS106A2Karel {
 	private static void putBeeper(){
 		System.out.println("putBeeper");
 	}
-
-	private static boolean notBlockedByWall(){
-		System.out.println("notBlokedByWall");
-		return true;
-	}
-
 	
 	private static boolean notBlockedOnLeft(){
 		turnLeft();
@@ -104,5 +92,4 @@ public class CS106A2Karel {
 		turnRight();
 		return notBlockedByWall;
 	}
-
 }
