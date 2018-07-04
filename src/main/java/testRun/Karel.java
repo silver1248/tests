@@ -58,7 +58,7 @@ public abstract class Karel {
         sop("move");
         sopd("\txy = %s, dir = %s", xy, dir);
         Location tempXy = xy.plus(dir.delta);
-        if (tempXy.x < 0 || tempXy.y < 0 || tempXy.x > room.length || tempXy.y > room[tempXy.x]) {
+        if (tempXy.x < 0 || tempXy.y < 0 || tempXy.x > room.length - 1 || tempXy.y > room[tempXy.x] - 1) {
             throw new RuntimeException("you can't move there");
         }
         xy = tempXy;
@@ -68,7 +68,16 @@ public abstract class Karel {
         sop("notBlockedByWall");
         sopd("\txy = %s, dir = %s rl = %s", xy, dir, room.length);
         Location tempXy = xy.plus(dir.delta);
-        return ! (tempXy.x < 0 || tempXy.y < 0 || tempXy.x > room.length - 1 || tempXy.y > room[tempXy.x]);
+        return ! (tempXy.x < 0 || tempXy.y < 0 || tempXy.x > room.length - 1 || tempXy.y > room[tempXy.x]- 1);
+    }
+
+    protected static boolean noBeepersPresent(){
+        sop("noBeeperspresent");
+        return true;
+    }
+
+    protected static void putBeeper(){
+        sop("putBeeper");
     }
 
     private static void sop(String format, Object... args) {
