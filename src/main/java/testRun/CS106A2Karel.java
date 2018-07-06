@@ -7,8 +7,8 @@ public class CS106A2Karel extends Karel {
     }
 
     public static void main(String[] args) {
+        turnLeft();
         while (notBlockedByWall() || notBlockedOnLeft()){
-            turnLeft();
             goToCeiling();
             goToFloor();
             goToNextColumn();
@@ -18,7 +18,6 @@ public class CS106A2Karel extends Karel {
     private static void goToCeiling() {
         System.out.println("goToCeiling 000");
         while (notBlockedByWall()) {
-            System.out.println("goToCeiling 010");
             if (noBeepersPresent()) {
                 putBeeper();
             }
