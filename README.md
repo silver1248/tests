@@ -11,6 +11,13 @@ set of exercises, there is no single main class.
 
 Dev Notes
 =========
+2018/07/05
+----------
+
+Today we fixed what was making Karel turn left too often. We also
+found out that there is a problem in main that isn't checking if were
+blocked by a wall or not.
+
 2018/07/04
 ----------
 
@@ -21,3 +28,4 @@ world. Lastly I learned how to use debuging statements and debug. To
 debug we click the bug in the middle of the toolbar and press step
 over and work out the kinks. And to use debuging statements we make
 the method print something so we know when the method starts and ends.
+
