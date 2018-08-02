@@ -6,8 +6,7 @@ public class CS106A2Karel extends Karel {
     }
 
     public static void main(String[] args) {
-        turnLeft();
-        while (notBlockedByWall() && notBlockedOnRight()){
+        while (notBlockedByWall()){
             goToCeiling();
             goToFloor();
             goToNextColumn();
@@ -16,6 +15,7 @@ public class CS106A2Karel extends Karel {
 
     private static void goToCeiling() {
         System.out.println("goToCeiling 000");
+        turnLeft();
         while (notBlockedByWall()) {
             if (noBeepersPresent()) {
                 putBeeper();
@@ -38,7 +38,6 @@ public class CS106A2Karel extends Karel {
         System.out.println("goToNextColumn 000");
         turnLeft();
         move4();
-        turnLeft();
         System.out.println("goToNextColumn 999");
     }
 
@@ -57,50 +56,4 @@ public class CS106A2Karel extends Karel {
         turnLeft();
         System.out.println("turnAround 999");
     }
-
-    private static void turnRight(){
-        System.out.println("turnRight 000");
-        turnLeft();
-        turnLeft();
-        turnLeft();
-        System.out.println("turnRight 999");
-    }
-
-    private static boolean notBlockedOnRight(){
-        turnRight();
-        boolean notBlocked = notBlockedByWall();
-        turnLeft();
-        return notBlocked;
-    }
-
-    //private static boolean notBlockedOnLeft(){
-    //    System.out.println("notBlockedOnLeft 000");
-    //    turnLeft();
-    //    boolean notBlocked = notBlockedByWall();
-    //    turnRight();
-    //    System.out.println("notBlockedOnLeft 999");
-    //    return notBlocked;
-    //    }
-
-
-    //    private static boolean notBlockedOnLeft2(){
-    //        turnLeft();
-    //        if (notBlockedByWall()) {
-    //            turnRight();
-    //            return true;
-    //        } else {
-    //            turnRight();
-    //            return false;
-    //        }
-    //    }
-    //
-    //    private static boolean notBlockedOnLeft3(){
-    //        turnLeft();
-    //        return turnRightThenValue(notBlockedByWall());
-    //    }
-
-    //    private static boolean turnRightThenValue(boolean notBlockedByWall) {
-    //        turnRight();
-    //        return notBlockedByWall;
-    //    }
 }
