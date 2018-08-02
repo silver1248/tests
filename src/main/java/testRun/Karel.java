@@ -49,85 +49,101 @@ public abstract class Karel {
 
     protected static void turnLeft() {
         sop("turnLeft");
-        sopd("\txy = %s, dir = %s", xy, dir);
+        sopd("\tfrom xy = %s, dir = %s", xy, dir);
         dir = dir.getNextDirection();
+        sopd("\tto xy = %s, dir = %s", xy, dir);
+        sopl("");
+
     }
 
 
     protected static void move() {
         sop("move");
-        sopd("\txy = %s, dir = %s", xy, dir);
+        sopd("\t\tfrom xy = %s, dir = %s", xy, dir);
         Location tempXy = xy.plus(dir.delta);
         if (tempXy.x < 0 || tempXy.y < 0 || tempXy.x > room.length - 1 || tempXy.y > room[tempXy.x] - 1) {
             throw new RuntimeException("you can't move there");
         }
         xy = tempXy;
+        sopd("\tto xy = %s, dir = %s", xy, dir);
+        sopl("");
     }
     
     protected static boolean notBlockedByWall(){
-        sop("notBlockedByWall");
-        sopd("\txy = %s, dir = %s rl = %s", xy, dir, room.length);
+        sop("notBlocked");
+        sopd("\tfrom xy = %s, dir = %s", xy, dir);
         Location tempXy = xy.plus(dir.delta);
+        sopl("");
         return ! (tempXy.x < 0 || tempXy.y < 0 || tempXy.x > room.length - 1 || tempXy.y > room[tempXy.x]- 1);
     }
 
     protected static boolean noBeepersPresent(){
-        sop("noBeeperspresent");
+        sopl("noBeeperspresent");
         return true;
     }
 
     protected static void putBeeper(){
-        sop("putBeeper");
+        sopl("putBeeper");
     }
 
     private static void sop(String format, Object... args) {
-        System.out.println(String.format("\t"+format, args));
+        System.out.print(String.format("\t"+format, args));
     }
 
-    private static boolean debug = false;
     private static void sopd(String format, Object... args) {
         if (debug) {
             sop(format, args);
         }
     }
 
+    private static void sopl(String format, Object... args) {
+        System.out.println(String.format("\t"+format, args));
+    }
+
+    private static boolean debug = true;
+    private static void sopld(String format, Object... args) {
+        if (debug) {
+            sopl(format, args);
+        }
+    }
+
     public static void main(String[] args) {
         room = new int[] {5,3,3,3,6};
         
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         turnLeft();
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         turnLeft();
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         turnLeft();
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         turnLeft();
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         move();
         turnLeft();
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         move();
         turnLeft();
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         move();
         turnLeft();
 
         turnLeft();
         turnLeft();
         xy = new Location(0,3);
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         move();
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         move();
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         move();
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
         move();
-        sopd("xy = %s dir = %s", xy, dir);
-        sopd("xy = %s dir = %s", xy, dir);
-        sopd("xy = %s dir = %s", xy, dir);
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
 
-        sopd("xy = %s dir = %s", xy, dir);
+        sopld("xy = %s dir = %s", xy, dir);
     }
 }

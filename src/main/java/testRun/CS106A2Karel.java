@@ -1,6 +1,5 @@
 package testRun;
 
-
 public class CS106A2Karel extends Karel {
     static {
         room = new int[] {5,6,7,6,5,6,7,6,5,6,7,6,5};
@@ -8,7 +7,7 @@ public class CS106A2Karel extends Karel {
 
     public static void main(String[] args) {
         turnLeft();
-        while (notBlockedByWall() || notBlockedOnLeft()){
+        while (notBlockedByWall() && notBlockedOnRight()){
             goToCeiling();
             goToFloor();
             goToNextColumn();
@@ -67,14 +66,21 @@ public class CS106A2Karel extends Karel {
         System.out.println("turnRight 999");
     }
 
-    private static boolean notBlockedOnLeft(){
-        System.out.println("notBlockedOnLeft 000");
-        turnLeft();
-        boolean notBlocked = notBlockedByWall();
+    private static boolean notBlockedOnRight(){
         turnRight();
-        System.out.println("notBlockedOnLeft 999");
+        boolean notBlocked = notBlockedByWall();
+        turnLeft();
         return notBlocked;
     }
+
+    //private static boolean notBlockedOnLeft(){
+    //    System.out.println("notBlockedOnLeft 000");
+    //    turnLeft();
+    //    boolean notBlocked = notBlockedByWall();
+    //    turnRight();
+    //    System.out.println("notBlockedOnLeft 999");
+    //    return notBlocked;
+    //    }
 
 
     //    private static boolean notBlockedOnLeft2(){
