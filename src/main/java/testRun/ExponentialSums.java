@@ -1,4 +1,4 @@
-package org.sweatshop.examples;
+package testRun;
 
 public class ExponentialSums {
 
