@@ -1,43 +1,37 @@
 package types.overwatch;
 
-import java.time.LocalDate;
-import java.time.Period;
+//import java.time.LocalDate;
+//import java.time.Period;
 
 import io.vavr.collection.List;
-import types.person.Person;
+//import types.person.Person;
 import types.person.Sex;
 
 public class Character{
     private final String name;
-    private final LocalDate birthday;
     private final Sex sex;
 
-    public Character(String name, LocalDate birthday, Sex sex) {
+    public Character(String name, Sex sex) {
         this.name = name;
-        this.birthday = birthday;
         this.sex = sex;
     }
 
-    public int getAge() {
-        Period p = Period.between(birthday, LocalDate.now());
-        return p.getYears();
-    }
+//    public int getAge() {
+//        return p.getYears();
+//    }
 
     @Override
     public String toString() {
-        return String.format("%s was born on %s so %s is %s years old.", name, birthday, sex.getPronoun(), getAge());
+        return String.format("%s is named %s.", sex.getPronoun(), name);
     }
 
     public static void main(String[] args) {
-        List<Person> people = List.of(
-                new Person("Dorian", LocalDate.of(2007, 3, 20), Sex.MALE), 
-                new Person("Vivian", LocalDate.of(2009, 9, 18), Sex.FEMALE), 
-                new Person("Hattie", LocalDate.of(2007, 5, 12), Sex.OTHER)
+        List<Character> people = List.of(
+                new Character("Jean-Baptiste Augustin", Sex.MALE), 
+                new Character("Elizabeth Caledonia “Calamity” Ashe", Sex.FEMALE)
                 );
-        for (Person person : people) {
+        for (Character person : people) {
             System.out.println(person);
         }
     }
-
-
 }
