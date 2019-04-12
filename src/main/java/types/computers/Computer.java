@@ -1,4 +1,4 @@
-package computers;
+package types.computers;
 
 public interface Computer {
 
