@@ -1,5 +1,11 @@
 package types.computers;
 
-public class PC {
+import lombok.Value;
 
+@Value
+public class PC implements Computer {
+
+    String name;
+    String ramSize;
+    String hardDriveSize;
 }
