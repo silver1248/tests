@@ -16,7 +16,7 @@ public class ComputerFinder  {
 
         ComputerFinder cf = new ComputerFinder(input);
 
-        for (Computer computer : cf.match(64,2048)) {
+        for (Computer computer : cf.match2(64,2048)) {
             System.out.println(computer);
         }
     }
@@ -37,5 +37,12 @@ public class ComputerFinder  {
             }
         }
         return matching.reverse();
+    }
+
+    public List<Computer> match2(long minRam, long minHD) {
+        return computers
+//                .filter(c -> c.getRamSize() >= minRam && c.getHardDriveSize() >= minHD)
+                .filter(c -> c.getManufacturer().toUpperCase().startsWith("A"))
+                .map(c -> new Mac(c.getName(), c.getRamSize() * 2, c.getHardDriveSize() * 2));
     }
 }
