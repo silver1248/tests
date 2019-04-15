@@ -5,7 +5,8 @@ import lombok.Value;
 @Value
 public class PC implements Computer {
 
+    String manufacturer;
     String name;
-    String ramSize;
-    String hardDriveSize;
+    long ramSize;
+    long hardDriveSize;
 }

@@ -1,21 +1,26 @@
 package types.computers;
 
 import io.vavr.collection.List;
+import lombok.Value;
 
-public class ComputerFinder {
+@Value
+public class ComputerFinder  {
+
+    List<Computer> computers;
 
     public static void main(String[] args) {
-        //        Computer bob = new Mac("bob", "8 GB", "1 TB");
-        Computer orsair = new PC("Corsair One i160", "32 GB", "2 TB");
-        Computer lienware = new PC("Alienware Aroura R7", "64 GB", "2 TB");
+        List<Computer> input = List.of(
+                new PC("Corsair", "One i160", 32, 2048),
+                new PC("Alienware", "Aroura R7", 64, 1024), 
+                new Mac("Mac Pro", 64, 2048));
 
-        List <Computer> computers = List.of(
-               new PC("Corsair One i160", "35 GB", "2 TB"),
-               new PC("Alienware Aroura R7", "64 GB", "2 TB"));
+        ComputerFinder cf = new ComputerFinder(input);
 
-                //        System.out.println(bob);
+        for (Computer computer : cf.match(64,2048)) {
+            System.out.println(computer);
+        }
     }
-
+    
     /**
      * Accepts the minimum amount of ram needed, and the minimum amount of hd needed, and a 
      * list of computers.
@@ -24,7 +29,13 @@ public class ComputerFinder {
      * @param computers
      * @return the sublist of computers that satisfy the criteria
      */
-    private static List<Computer> matchComputers(long minRam, long minHD, List<Computer> computers) {
-        return computers;
+    public List<Computer> match(long minRam, long minHD) {
+        List <Computer> matching = List.empty();
+        for (Computer computer : computers) {
+            if (minRam <= computer.getRamSize() && minHD <= computer.getHardDriveSize()) {
+                matching = matching.prepend(computer);
+            }
+        }
+        return matching.reverse();
     }
 }
