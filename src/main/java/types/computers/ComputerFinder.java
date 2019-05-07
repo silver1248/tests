@@ -36,6 +36,8 @@ public class ComputerFinder  {
         System.out.println(cf.getNameAndMan());
         System.out.println(cf.longestNameAndMan());
         System.out.println(cf.shortestNameAndMan());
+        System.out.println(cf.longerThanNumOfCharacters());
+        System.out.println(cf.manLongerThan8());
     }
 
 
@@ -57,21 +59,6 @@ public class ComputerFinder  {
         return matching.reverse();
     }
 
-    //    public List<Long> getRam() {
-    //        return computers.map(c -> c.getRamSize());
-    //    }
-    //
-    //    public List<Long> getHD() {
-    //        return computers.map(c -> c.getHardDriveSize());
-    //    }
-    //
-    //    public List<Long> getHDAndRam() {
-    //        return computers
-    //                .filter(c -> c.getRamSize() > 32)
-    //                .map(c -> c.getHardDriveSize() + c.getRamSize());
-    //    }
-    //    
-
     public long biggestAddition() {        
         return computers
                 .map(c -> c.getHardDriveSize() + c.getRamSize())
@@ -83,7 +70,7 @@ public class ComputerFinder  {
         return computers
                 .map(c -> c.getManufacturer() + " " + c.getName());
     }
-    
+
     public String longestNameAndMan() {
         return getNameAndMan()
                 .map(s -> Tuple.of(s, s.length()))
@@ -91,7 +78,7 @@ public class ComputerFinder  {
                 .get()
                 ._1();
     }
-    
+
     public String shortestNameAndMan() {
         return getNameAndMan()
                 .map(s -> Tuple.of(s, s.length()))
@@ -99,12 +86,28 @@ public class ComputerFinder  {
                 .get()
                 ._1();
     }
-    
+
+    public List<String> longerThanNumOfCharacters() {
+        int minLength = 18;
+
+        return getNameAndMan()
+                .filter(s -> s.length() > minLength)
+                ;
+    }
+
+    public List<String> manLongerThan8() {
+        int minLength = 6;
+
+        return computers
+                .filter(c -> c.getManufacturer().length() > minLength)
+                .map(c -> c.getManufacturer() + " " + c.getName());
+    }
+
     /*
      * 1. The name and manufacturer together with a space between them(All computers)
      * 2. Longest printout of #1
      * 3. Shortest of #1
-     * 4. all longer than Random number (between 10 and 20)
+     * 4. all longer than Random number(between 10 and 20)
      * 5. The name and manufacturer together with a space between them when
      * manufacturer is more than 6 characters (or something)
      * 6. ram and manufacturer when the ram size times 2 if bigger than 64
