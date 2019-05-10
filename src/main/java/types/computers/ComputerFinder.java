@@ -38,6 +38,7 @@ public class ComputerFinder  {
         System.out.println(cf.shortestNameAndMan());
         System.out.println(cf.longerThanNumOfCharacters());
         System.out.println(cf.manLongerThan8());
+        System.out.println(cf.douleRamBiggerThan256());
     }
 
 
@@ -102,6 +103,19 @@ public class ComputerFinder  {
                 .filter(c -> c.getManufacturer().length() > minLength)
                 .map(c -> c.getManufacturer() + " " + c.getName());
     }
+    
+    /** 6. ram and manufacturer when the ram size times 2 if bigger than 128
+     * 
+     * @return all numbers that when you double the ram you get 128
+     */
+
+    public List<String> douleRamBiggerThan256() {
+        int minLength = 128;
+        
+        return computers
+                .filter(c -> c.getRamSize() * 2 >= minLength)
+                .map(c -> c.getManufacturer() + " " + c.getName());
+    }
 
     /*
      * 1. The name and manufacturer together with a space between them(All computers)
@@ -110,7 +124,7 @@ public class ComputerFinder  {
      * 4. all longer than Random number(between 10 and 20)
      * 5. The name and manufacturer together with a space between them when
      * manufacturer is more than 6 characters (or something)
-     * 6. ram and manufacturer when the ram size times 2 if bigger than 64
+     * 6. ram and manufacturer when the ram size times 2 if bigger than 128
      */
 
     public Computer longestName() {
