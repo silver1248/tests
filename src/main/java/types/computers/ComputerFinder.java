@@ -1,26 +1,26 @@
 package types.computers;
 
 import io.vavr.Tuple;
-import io.vavr.Tuple2;
 import io.vavr.collection.List;
-import io.vavr.control.Option;
 import lombok.Value;
 
 @Value
 public class ComputerFinder  {
 
     List<Computer> computers;
-
-    public static void main(String[] args) {
-        Mac mac = new Mac("Mac Pro", 64, 2048);
-
-        List<Computer> input = List.of(
+    
+    public static List<Computer> getDefaultList() {
+        return List.of(
                 new PC("AlienwareLonger", "Aroura R7", 64, 1024), 
                 new PC("Corsair", "One i160", 32, 2048),
                 new PC("Alienware", "Aroura R7", 64, 1024), 
                 new Mac("Mac Pro", 64, 2048));
+    }
 
-        ComputerFinder cf = new ComputerFinder(input);
+    public static void main(String[] args) {
+        Mac mac = new Mac("Mac Pro", 64, 2048);
+
+        ComputerFinder cf = new ComputerFinder(getDefaultList());
 
         for (Computer computer : cf.match2(64,2048)) {
             System.out.println(computer);
