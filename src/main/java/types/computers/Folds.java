@@ -1,5 +1,6 @@
 package types.computers;
 
+import io.vavr.Function1;
 import io.vavr.collection.List;
 
 public class Folds {
@@ -13,6 +14,9 @@ public class Folds {
         System.out.println(totalRamOfPcs(computers));
         System.out.println(productOfRam(computers));
         System.out.println(productOfRamOfCompsWithMoreThan7Char(computers));
+        System.out.println(productOfRamOfManLengthRamSize(computers, 10, 32));
+        System.out.println(productOfRamSquaredManLengthRamSize(computers, 10, 1024));
+        System.out.println(productOfRamFManLengthRamSize(computers, l -> l*l, 10, 1024));
 
     }
 
@@ -71,7 +75,49 @@ public class Folds {
                 .map(Computer::getRamSize)
                 .fold(1l, (l1, l2) -> l1 * l2);
     }
+    
+    public static Long productOfRamOfManLengthRamSize(List<Computer> computers, long minLength, long minRam) {
+        return computers
+                .filter(c -> c.getManufacturer().length() > minLength)
+                .filter(c -> c.getRamSize() > minRam)
+                .map(Computer::getRamSize)
+                .fold(1l, (l1, l2) -> l1 * l2);
 
+        //these two do the same thing as the one above
+//        return computers
+//                .filter(c -> c.getManufacturer().length() > minLength)
+//                .map(Computer::getRamSize)
+//                .filter(l -> l > minRam)
+//                .fold(1l, (l1, l2) -> l1 * l2);
+//        
+//        return computers
+//                .filter(c -> c.getManufacturer().length() > minLength 
+//                        && c.getRamSize() > minRam)
+//                .map(Computer::getRamSize)
+//                .fold(1l, (l1, l2) -> l1 * l2);
+    }
+
+    public static Long productOfRamSquaredManLengthRamSize(List<Computer> computers, long minLength, long minRam) {
+        return computers
+                .filter(c -> c.getManufacturer().length() > minLength)
+                .map(c -> c.getRamSize() * c.getRamSize())
+                .filter(l -> l > minRam)
+                .fold(1l, (l1, l2) -> l1 * l2);
+    }
+
+    public static Long productOfRamFManLengthRamSize(
+            List<Computer> computers
+            , Function1<Long, Long> f
+            , long minLength
+            , long minRam)
+    {
+        return computers
+                .filter(c -> c.getManufacturer().length() > minLength)
+                .map(c -> f.apply(c.getRamSize()))
+                .filter(l -> l > minRam)
+                .fold(1l, (l1, l2) -> l1 * l2);
+    }
+    
     /*
      * Write methods that
      * 1) gets the total ram
