@@ -118,6 +118,10 @@ public class Folds {
                 .fold(1l, (l1, l2) -> l1 * l2);
     }
     
+    public static List<Computer> name(List<Computer> computers, Function1<Computer, Long> f1, Function1<Long, Boolean> f2) {
+        
+    }
+    
     /*
      * Write methods that
      * 1) gets the total ram
@@ -127,5 +131,6 @@ public class Folds {
      * 5) gets the product of the ram of machines where the manufacturer has more than 7 characters
      * 6) gets the product of rams greater than 32 when the manufacturer has more than 
      *    n characters (use 7)
+     * 7) 2 methods with 2 functions that do the same thing
      */
 }
