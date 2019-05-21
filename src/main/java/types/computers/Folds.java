@@ -117,7 +117,16 @@ public class Folds {
                 .filter(l -> l > minRam)
                 .fold(1l, (l1, l2) -> l1 * l2);
     }
-    
+    /**
+     * f1: Computer -> Long
+     * f2: Long -> Boolean
+     * Boolean operator is > or <
+     * C such that f2(f1(c))
+     * @param computers
+     * @param f1
+     * @param f2
+     * @return
+     */
     public static List<Computer> name(List<Computer> computers, Function1<Computer, Long> f1, Function1<Long, Boolean> f2) {
         
     }
