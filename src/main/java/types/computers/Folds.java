@@ -1,6 +1,9 @@
 package types.computers;
 
 import io.vavr.Function1;
+import io.vavr.Tuple;
+import io.vavr.Tuple2;
+import io.vavr.Tuple3;
 import io.vavr.collection.List;
 
 public class Folds {
@@ -9,15 +12,17 @@ public class Folds {
     public static void main(String[] args) {
         List<Computer> computers = ComputerFinder.getDefaultList();
 
-        System.out.println(totalRam(computers));
-        System.out.println(totalHD(computers));
-        System.out.println(totalRamOfPcs(computers));
-        System.out.println(productOfRam(computers));
-        System.out.println(productOfRamOfCompsWithMoreThan7Char(computers));
-        System.out.println(productOfRamOfManLengthRamSize(computers, 10, 32));
-        System.out.println(productOfRamSquaredManLengthRamSize(computers, 10, 1024));
-        System.out.println(productOfRamFManLengthRamSize(computers, l -> l*l, 10, 1024));
-
+//        System.out.println(totalRam(computers));
+//        System.out.println(totalHD(computers));
+//        System.out.println(totalRamOfPcs(computers));
+//        System.out.println(productOfRam(computers));
+//        System.out.println(productOfRamOfCompsWithMoreThan7Char(computers));
+//        System.out.println(productOfRamOfManLengthRamSize(computers, 10, 32));
+//        System.out.println(productOfRamSquaredManLengthRamSize(computers, 10, 1024));
+//        System.out.println(productOfRamFManLengthRamSize(computers, l -> l*l, 10, 1024));
+//        System.out.println(fred(computers, c -> c.getRamSize(), l -> l > 63 ));
+//        System.out.println(fred2(computers, c -> c.getRamSize(), l -> l > 63 ));
+        System.out.println(test(computers, c -> c.getName(), s -> s.length()));
     }
 
 
@@ -127,9 +132,53 @@ public class Folds {
      * @param f2
      * @return
      */
-    public static List<Computer> name(List<Computer> computers, Function1<Computer, Long> f1, Function1<Long, Boolean> f2) {
-        
+    public static List<Computer> fred(List<Computer> computers, Function1<Computer, Long> f1, Function1<Long, Boolean> f2) {
+        return computers
+                .filter(c -> f2.apply(f1.apply(c)));
     }
+    
+//    public static List<Long> fred2(List<Computer> computers, Function1<Computer, Long> f1, Function1<Long, Boolean> f2) {
+//        return computers
+//                .map(c -> Tuple.of(c, ))
+//                .map(c -> f1.apply(c))
+//                .filter(c -> f2.apply(c));
+//    }
+    
+    public static List<Tuple2<Computer, Integer>> tuplePractice(List<Computer> computers) {
+        return computers
+                .map(c -> Tuple.of(c, c.getManufacturer().length()));
+    }
+    
+    public static List<Tuple2<Computer, Integer>> tuplePractice(List<Computer> computers, Function1<Computer, Integer> f) {
+        return computers.
+                map(c -> Tuple.of(c, f.apply(c)));
+    }
+
+    public static List<Tuple2<Computer, String>> test2(List<Computer> computers, Function1<Computer, String> f ) {
+        return computers
+                .map(c -> Tuple.of(c, f.apply(c)));
+    }
+    
+    public static List<Tuple2<Tuple2<Computer, String>, Integer>> test(List <Computer> computers
+            , Function1<Computer, String> f1
+            , Function1<String, Integer> f2) 
+    {
+        return computers
+                .map(c -> Tuple.of(c, f1.apply(c)))
+                .map(t -> Tuple.of(t, f2.apply(t._2())));
+    }
+    
+    public static List<Tuple3<Computer, String, Integer>> test2(List <Computer> computers
+            , Function1<Computer, String> f1
+            , Function1<String, Integer> f2) 
+    {
+        
+        return computers
+                .map(c -> Tuple.of(c, f1.apply(c)))
+                .map(t -> Tuple.of(t._1(), t._2(), f2.apply(t._2())));
+    }
+    
+    
     
     /*
      * Write methods that
