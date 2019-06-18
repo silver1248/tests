@@ -23,9 +23,10 @@ public class Folds {
 //        System.out.println(fred(computers, c -> c.getRamSize(), l -> l > 63 ));
 //        System.out.println(fred2(computers, c -> c.getRamSize(), l -> l > 63 ));
         
-        List<Tuple2<Tuple2<Computer, String>, Integer>> foo = test(computers, c -> c.getName(), s -> s.length());
-        System.out.println(test(computers, c -> c.getName(), s -> s.length()));
-        System.out.println(foo.get()._1()._2());
+//        List<Tuple2<Tuple2<Computer, String>, Integer>> foo = test(computers, c -> c.getName(), s -> s.length());
+//        System.out.println(test(computers, c -> c.getName(), s -> s.length()));
+//        System.out.println(foo.get()._1()._2());
+        System.out.println(bob(computers, c -> c.getRamSize(), l-> l > 35, l -> l * 2));
     }
 
 
@@ -186,6 +187,17 @@ public class Folds {
      * and f3: Long -> Long.  It will apply the f1, use f2 as a filter,
      * then apply f3( * 2) to what's left, and return those Longs.
      */
+    public static List<Long> bob(List <Computer> computers
+            , Function1<Computer, Long>  f1
+            , Function1<Long, Boolean> f2
+            , Function1<Long, Long> f3)
+    {
+         
+        return computers
+                .map(c -> f1.apply(c))
+                .filter(l -> f2.apply(l))
+                .map(l -> f3.apply(l));
+    }
     
     /*
      * Write methods that
