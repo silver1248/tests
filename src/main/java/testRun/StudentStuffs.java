@@ -16,20 +16,17 @@ public class StudentStuffs {
      *
      * Want program where create bunch of students
      * and print out whether they can graduate or not
+     * 
+     * Instructions for program:
+     * look at first few lines of ContinuousCounter
+     * and do that to make new students
      */
     public static void main(String[] args) {
 //        StudentStuffs numOfCreditsCompleted = new StudentStuffs(256);
-    
-        List.of(
-                "Fred",
-                "Bob",
-                "Susan",
-                "Ellen"
-                );
-    
+
     }
     
-    public StudentStuffs(int numOfCreditsCompleted) {
+    public StudentStuffs(int credits) {
         
     }
     
