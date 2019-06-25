@@ -25,25 +25,33 @@ public class StudentStuffs {
         StudentStuffs Bob = new StudentStuffs(2.6, "Bob", 305);
         StudentStuffs Jane = new StudentStuffs(4.0, "Jane", 300);
         StudentStuffs Sarah = new StudentStuffs(3.7, "Sarah", 110);
-        graduationPossibility();
+        Fred.printCanGraduate();
+        Jane.printCanGraduate();
+        Sarah.printCanGraduate();
+        Bob.printCanGraduate();
     }
     public StudentStuffs(double gpa, String name, int credits) {
         this.gpa = gpa;
         this.name = name;
         this.credits = credits;
     }
-    static double gpa;
-    static String name;
-    static int credits;
-    static int creditsNeeded;
+    double gpa;
+    String name;
+    int credits;
+    static int creditsNeeded = 256;
     
-    public static boolean graduationPossibility() {
-        if(credits > 256) {
-            System.out.println(name + " can graduate");
+    public boolean canGraduate() {
+        if(credits > creditsNeeded) {
             return true;
-        } else{
-            System.out.println(name + " can't graduate");
+        } else {
             return false;
+        }
+    }
+    public void printCanGraduate() {
+        if (canGraduate()) {
+            System.out.println(name + " can graduate");
+        } else {
+            System.out.println(name + " can't graduate");
         }
     }
 }    
