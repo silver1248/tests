@@ -21,14 +21,24 @@ public class StudentStuffs {
      */
     public static void main(String[] args) {
         
-        StudentStuffs Fred = new StudentStuffs(3.7, "Fred", 160);
-        StudentStuffs Bob = new StudentStuffs(2.6, "Bob", 305);
-        StudentStuffs Jane = new StudentStuffs(4.0, "Jane", 300);
-        StudentStuffs Sarah = new StudentStuffs(3.7, "Sarah", 110);
-        Fred.printCanGraduate();
-        Jane.printCanGraduate();
-        Sarah.printCanGraduate();
-        Bob.printCanGraduate();
+        StudentStuffs fred = new StudentStuffs(3.7, "Fred", 160);
+        StudentStuffs bob = new StudentStuffs(2.6, "Bob", 305);
+        StudentStuffs jane = new StudentStuffs(4.0, "Jane", 300);
+        StudentStuffs sarah = new StudentStuffs(3.7, "Sarah", 110);
+//        Fred.printCanGraduate();
+//        Jane.printCanGraduate();
+//        Sarah.printCanGraduate();
+//        Bob.printCanGraduate();
+        
+        
+        System.out.println(fred);
+        System.out.println(bob);
+        System.out.println(jane);
+        System.out.println(sarah);
+    }
+   
+    public String toString() {
+        return name + " has a gpa of " + gpa + ", has " + credits + " credits, and " + canGraduateText() + ".";
     }
     public StudentStuffs(double gpa, String name, int credits) {
         this.gpa = gpa;
@@ -41,17 +51,17 @@ public class StudentStuffs {
     static int creditsNeeded = 256;
     
     public boolean canGraduate() {
-        if(credits > creditsNeeded) {
-            return true;
-        } else {
-            return false;
-        }
+        return credits > creditsNeeded;
     }
-    public void printCanGraduate() {
-        if (canGraduate()) {
-            System.out.println(name + " can graduate");
-        } else {
-            System.out.println(name + " can't graduate");
-        }
+    
+    public String canGraduateText() {
+        return canGraduate() ? "can graduate" : "can't graduate";
     }
+//    public void printCanGraduate() {
+//        if (canGraduate()) {
+//            System.out.println(name + " can graduate");
+//        } else {
+//            System.out.println(name + " can't graduate");
+//        }
+//    }
 }    
