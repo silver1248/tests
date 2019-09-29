@@ -8,14 +8,14 @@ public class Modding {
 
 
     public static String modEquation(int modded, int modBy) {
-        String result = "";
+        StringBuffer result = new StringBuffer();
         for (int i = 0; i < modBy; i++) {
             for (int j = 0; j < modded; j++) {
-                result += createModLine(modded - j, modBy - i);
+                result.append(createModLine(modded - j, modBy - i));
             }
-            result += "\n";
+            result.append("\n");
         }
-        return result;
+        return result.toString();
     }
 
 
