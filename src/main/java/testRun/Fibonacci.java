@@ -9,8 +9,8 @@ public class Fibonacci {
 		long nMinusOne = 1;
 		
 		long n = 1;
-		System.out.println(format("fib(%s) = %s", n++, nMinusTwo));
-		System.out.println(format("fib(%s) = %s", n++, nMinusOne));
+		System.out.println(format("fib-aaa(%s) = %s", n++, nMinusTwo));
+		System.out.println(format("fib-bbb(%s) = %s", n++, nMinusOne));
 		
 		for (; n < 33; n++) {
 			long newFib = nMinusOne + nMinusTwo;

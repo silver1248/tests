@@ -3,7 +3,7 @@ package types.computers;
 public class Modding {
     
     public static void main(String[] args) {
-        System.out.println(modEquation(5, 3));
+        System.out.println(modEquation(7, 7));
     }
 
 
