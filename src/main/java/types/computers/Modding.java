@@ -13,7 +13,7 @@ public class Modding {
             for (int j = 0; j < modded; j++) {
                 int innerModded = modded -j;
                 int innerModBy = modBy - i;
-                String innerString = innerModded +" % " + innerModBy + " = " + (innerModded % innerModBy) + "\t";
+                String innerString = String.format("%d %% %d = %d\t", innerModded, innerModBy, (innerModded % innerModBy));
                 result += innerString;
             }
             result += "\n";
