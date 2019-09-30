@@ -23,7 +23,11 @@ public class Modding {
         return String.format("%d %% %d = %d\t", modded, modBy, (modded % modBy));
     }
     
-//    public static int modGrid(int modBy, int modded) {
-//        
-//    }
+    public static int modGrid(int modBy, int modded) {
+      for(int i = modded; i < 5; i++) {
+          system.out.print("/t %s", modded - i);
+        for(int j = 0; j < modBy; j++) {
+      }
+    }
+
 }
