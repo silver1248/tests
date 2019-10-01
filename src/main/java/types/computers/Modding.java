@@ -1,9 +1,7 @@
-package types.computers;
-
 public class Modding {
     
     public static void main(String[] args) {
-        System.out.println(modEquation(7, 7));
+        System.out.println(modEquation(7, 3));
     }
 
 
@@ -23,11 +21,14 @@ public class Modding {
         return String.format("%d %% %d = %d\t", modded, modBy, (modded % modBy));
     }
     
-    public static int modGrid(int modBy, int modded) {
+    public static String modGrid(int modBy, int modded) {
       for(int i = modded; i < 5; i++) {
-          system.out.print("/t %s", modded - i);
         for(int j = 0; j < modBy; j++) {
       }
     }
+  }
 
+  public static String createModGrid(int modded, int modBy) {
+    return String.format("/t %s /n %s",modded - i , modded % modBy);
+  }
 }
