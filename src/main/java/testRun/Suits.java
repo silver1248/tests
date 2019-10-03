@@ -23,7 +23,7 @@ public enum Suits {
             System.out.println("not equal");
         }
         
-        final String foo = "abcdefg";
+        String foo = "abcdefg";
         foo = "abcdefgh";
         
         final AtomicInteger i = new AtomicInteger(5);
