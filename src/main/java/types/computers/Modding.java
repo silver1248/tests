@@ -5,7 +5,6 @@ public class Modding {
 	public static void main(String[] args) {
 		System.out.println(modEquation(7, 3));
 		System.out.println(modGrid(7, 4));
-		thingy(7,2);
 	}
 
 
@@ -28,10 +27,10 @@ public class Modding {
 	public static String modGrid(int modded, int modBy) {
 		StringBuffer grid = new StringBuffer();
 
-		for (int i = 0; i < modBy; i++) {
-			grid.append(modBy - i);
-			for (int j = 0; j < modded; j++) {
-				grid.prepend(modded);
+			grid.append(thingy(modded));
+			for (int i = 0; i < modBy; i++) {
+				grid.append(modBy - i + "|");
+				for (int j = 0; j < modded; j++) {
 				grid.append(createModGrid(modBy - i, modded - j));
 			}
 			grid.append("\n");
@@ -40,18 +39,19 @@ public class Modding {
 		return grid.toString();
 	}
 
-	public static void thingy(int modded, int modBy) {
-		System.out.println(modded % modBy);
+	public static String thingy(int modded) {
+		StringBuffer grid = new StringBuffer();
+		for(int i = 0; i < modded; i++) {
+			grid.append("\t ");
+			grid.append(modded - i);
+		}
+		grid.append("\n");
+		return grid.toString();
 	}
 
 	public static String createModGrid(int modded, int modBy) {
 		return String.format("\t %d", modBy % modded );
-//		return (modded + " " + modBy + "\t");
+		//		return (modded + " " + modBy + "\t");
 	}
 
-
-	private static String String(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
