@@ -3,13 +3,11 @@ package testRun;
 public class Factoring {
 
     public static void main(String[] args) {
-        factoring(6);
+        factor(10);
     }
-    public static int factoring(int stop) {
-        int factorNumber;
-        
+    public static int factor(int stop) {
         for(int i = 1; i <= stop; i++) {
-            for(factorNumber = 1;factorNumber <= i; factorNumber++){
+            for(int factorNumber = 1;factorNumber <= Math.sqrt(i) ; factorNumber++){
                 if(i % factorNumber == 0){
                     System.out.println(factorNumber + "*" + i / factorNumber + "=" + i);
                 }
