@@ -5,19 +5,19 @@ public class Factoring {
     public static void main(String[] args) {
         factorLoop(10);
     }
-    public static int factorLoop(int stop) {
+    
+    public static void factorLoop(int stop) {
         for (int i = 1; i <= stop; i++) {
             factor(i);
         }
-        return stop;
     }
     
-    public static int factor(int number) {
-        for (int factorNumber = 1; factorNumber <= Math.sqrt(number); factorNumber++) {
-            if(number % factorNumber == 0){
-                System.out.printf("%s * %s = %s\n", factorNumber, number / factorNumber, number);
+    public static void factor(final int number) {
+        double sqrt = Math.sqrt(number);
+        for (int i = 1; i <= sqrt; i++) {
+            if (number % i == 0) {
+                System.out.printf("%s * %s = %s\n", i, number / i, number);
             }
         }
-        return number;
     }
 }
