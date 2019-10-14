@@ -10,6 +10,7 @@ public class FizzBuzz {
         StringBuffer numLine = new StringBuffer();
 
         for (int i = 1; i <= stopNum; i++) {
+            
             boolean mod = false;
             if (i % fizz == 0) {
                 numLine.append("fizz");
@@ -26,22 +27,20 @@ public class FizzBuzz {
             
             
             
-            
-            
-            
-            
-            if ((i % fizz) + (i % buzz) == 0) {
-                numLine.append("fizzBuzz").append("\n");
-            } else {
-                if (i % fizz == 0) {
-                    numLine.append("fizz").append("\n");
-                }
-                if (i % buzz == 0) {
-                    numLine.append("buzz").append("\n");
-                } else {
-                        numLine.append(i).append("\n");
-                }
-            }
+// this is what i originally wrote it is not good code by any means but it works and gives the exact same result as the one above
+//            if ((i % fizz) + (i % buzz) == 0) {
+//                numLine.append("fizzBuzz").append("\n");
+//            } else {
+//                if (i % fizz == 0) {
+//                    numLine.append("fizz").append("\n");
+//                } else {
+//                    if (i % buzz == 0) {
+//                        numLine.append("buzz").append("\n");
+//                    } else {
+//                        numLine.append(i).append("\n");
+//                    }
+//                }
+//            }
         }
         return numLine.toString();
     }
