@@ -3,7 +3,7 @@ package testRun;
 public class RemoveFromString {
 
 	public static void main(String[] args) {
-		removeAllOccurrences("this is fun", 'i');
+		System.out.println(removeAllOccurrences("this is fun", 'i'));
 	}
 
 	public static String removeAllOccurrences(String str, char ch) {
