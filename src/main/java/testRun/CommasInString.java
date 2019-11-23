@@ -25,8 +25,10 @@ public class CommasInString {
         int numberOfCommas = (length-1) / 3;
         log.trace("length = {}, commas = {}", length, numberOfCommas);
 
-        for (int i = 1; i <= numberOfCommas; i ++) {
-            str = str.substring(0, length - (i*3)) + "," + str.substring(length - (i*3));
+        for (int i = numberOfCommas; i >= numberOfCommas; i --) {
+            str = str.substring(0, length - (i/3)) + "," + str.substring(length - (i*3));
+
+
         }
 
         return str;
