@@ -21,6 +21,9 @@ public class CommasInString {
     }
 
     public static String commasInString(String str) {
+        if (str == null) {
+            return "";
+        }
         int length = str.length();
         int numberOfCommas = (length-1) / 3;
         log.trace("length = {}, commas = {}", length, numberOfCommas);

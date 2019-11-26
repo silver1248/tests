@@ -5,23 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CommasInStringDecimal {
 
-    public static void main(String[] args) {
-        System.out.println(commasInStringWithDecimal(null));
-        System.out.println(commasInStringWithDecimal(""));
-        System.out.println(commasInStringWithDecimal(".5"));
-        System.out.println(commasInStringWithDecimal("1"));
-        System.out.println(commasInStringWithDecimal("12"));
-        System.out.println(commasInStringWithDecimal("123"));
-        System.out.println(commasInStringWithDecimal("12.34"));
-        System.out.println(commasInStringWithDecimal("1234.5"));
-        System.out.println(commasInStringWithDecimal("12345.6"));
-        System.out.println(commasInStringWithDecimal("123.4567"));
-        System.out.println(commasInStringWithDecimal("1234.5678"));
-        System.out.println(commasInStringWithDecimal("12345.6789"));
-        System.out.println(commasInStringWithDecimal("123456.7890"));
-
-    }
-
     public static String commasInString(String str) {
         int length = str.length();
         int lengthToDecimal = str.indexOf('.');
