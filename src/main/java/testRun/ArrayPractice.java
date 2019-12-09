@@ -1,11 +1,13 @@
 package testRun;
 
-import java.util.Arrays;
-
 public class ArrayPractice {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(arrayPractice(37, 20)));
+        int length = 20;
+        int[] array = arrayPractice(37, length);
+        for (int i = 0; i < length; i++) {
+            System.out.print(array[i]+", ");
+        }
     }
 
     public static int[] arrayPractice(int start, int length) {
@@ -14,8 +16,6 @@ public class ArrayPractice {
         for (int i = start; i < start + length; i++) {
             intArray[i - start] = i;
         }
-//        int a[]=new int[5];
-//        a[0]=10;
         return intArray;
     }
 }
