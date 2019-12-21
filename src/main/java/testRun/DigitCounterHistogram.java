@@ -1,11 +1,7 @@
 package testRun;
 
 
-public class ArrayPracticeButPretty {
-
-
-
-
+public class DigitCounterHistogram {
 
     public static String prettyArray(String in) {
         int[] countArray = DigitCounter.count(in);
@@ -19,7 +15,7 @@ public class ArrayPracticeButPretty {
     }
 
     public static String histogramLine(int[] countArray, int i) {
-        return i + "| " + stars(countArray[i]) + "\n";
+        return String.format("%d| %s\n",i, stars(countArray[i]));
     }
 
     private static String stars(int i) {

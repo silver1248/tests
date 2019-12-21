@@ -6,11 +6,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class ArrayPracticeButPrettyTest {
+public class DigitCounterHistogramTest {
 
     @Test (dataProvider = "countTestButPrettyDP")
     public void countTest(String in, String expected) {
-        assertEquals(ArrayPracticeButPretty.prettyArray(in), expected);
+        assertEquals(DigitCounterHistogram.prettyArray(in), expected);
     }
 
     @DataProvider
