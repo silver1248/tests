@@ -29,9 +29,9 @@ public class DigitCounterHistogram2 {
     }
 
     public static int max(int[] in) {
-        int max = 0;
-        for (int i = 0; i < in.length; i++) {
-            
+        int max = in[0];
+        for (int i = 1; i < in.length; i++) {
+            max = Math.max(max, in[i]);
         }
         return max;
     }
