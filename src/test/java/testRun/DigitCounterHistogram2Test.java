@@ -14,10 +14,10 @@ public class DigitCounterHistogram2Test {
 
     @DataProvider
     Object[][] countTestButPrettyDP() {
-//        String emptyHistogram = "    -------------------\n    0 1 2 3 4 5 6 7 8 9";
+        String emptyHistogram = "    -------------------\n    0 1 2 3 4 5 6 7 8 9";
         return new Object[][] {
-//            {null, emptyHistogram},
-//            {"", emptyHistogram},
+            {null, emptyHistogram},
+            {"", emptyHistogram},
 
             {"0",        "1 | *                  \n    -------------------\n    0 1 2 3 4 5 6 7 8 9"},
             {"101",      "2 |   *                \n1 | * *                \n    -------------------\n    0 1 2 3 4 5 6 7 8 9"},

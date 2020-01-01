@@ -7,13 +7,12 @@ public class DigitCounterHistogram2 {
         StringBuffer sb = new StringBuffer();
 
         if (in != null || !"".equals(in)) {
-
             for (int i = max(countArray); i > 0; i--) {
                 sb.append(sideLine(countArray, i));
             }
-            sb.append("    -------------------\n")
-              .append("    0 1 2 3 4 5 6 7 8 9");
         }
+        sb.append("    -------------------\n")
+          .append("    0 1 2 3 4 5 6 7 8 9");
 
         return sb.toString();
     }
