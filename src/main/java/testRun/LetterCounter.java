@@ -1,0 +1,58 @@
+package testRun;
+
+public class LetterCounter {
+
+    public static int[] count(String s) {
+
+        int countArray[] = new int[26];
+
+        if (null != s) {
+            for (int i = 0; i < s.length(); i++) {
+                char charAt = s.charAt(i);
+                int digit = charAt - 'a';
+                countArray[digit]++;
+            }
+        }
+
+        return countArray;
+    }
+	public static String prettyArray(String in) {
+        int[] countArray = count(in);
+        StringBuffer sb = new StringBuffer();
+
+        if (in != null || !"".equals(in)) {
+            for (int i = max(countArray); i > 0; i--) {
+                sb.append(sideLine(countArray, i));
+            }
+        }
+        sb.append("    ---------------------------------------------------\n")
+          .append("    a b c d e f g h i j k l m n o p q r s t u v w x y z");
+
+        return sb.toString();
+    }
+
+    public static String sideLine(int[] countArray, int i) {
+        return String.format("%d |%s\n",i,stars(i, countArray));
+    }
+
+    public static String stars(int i, int[] countArray) {
+        StringBuffer sb = new StringBuffer();
+        for (int j = 0; j < 10; j++) {
+            if (countArray[j] >= i) {
+                sb.append(" *");
+            } else {
+                sb.append("  ");
+            }
+        }
+        return sb.toString();
+    }
+
+    public static int max(int[] in) {
+        int max = in[0];
+        for (int i = 1; i < in.length; i++) {
+            max = Math.max(max, in[i]);
+        }
+        return max;
+    }
+
+}
