@@ -17,7 +17,7 @@ public class LetterCounterTest {
 
     @DataProvider
     Object[][] prettyArrayTestDP() {
-        String emptyHistogram = "    ----------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s tt u v w x y z";
+        String emptyHistogram = "    ----------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s t u v w x y z";
         return new Object[][] {
             {null, emptyHistogram},
             {"", emptyHistogram},
