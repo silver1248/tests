@@ -37,7 +37,7 @@ public class LetterCounter {
 
     public static String stars(int i, int[] countArray) {
         StringBuffer sb = new StringBuffer();
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 26; j++) {
             if (countArray[j] >= i) {
                 sb.append(" *");
             } else {

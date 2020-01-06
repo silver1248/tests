@@ -12,18 +12,20 @@ public class LetterCounterTest {
     @Test 
     (dataProvider = "prettyArrayTestDP")
     public void prettyArrayTest(String in, String expected) {
-        assertEquals(LetterCounter.prettyArray(in), expected);
+    	String actual = LetterCounter.prettyArray(in);
+    	System.out.println(String.format("in%n%s%nactual:%n%s%nexpected:%n%s%n%n", in, actual, expected));
+        assertEquals(actual, expected);
     }
 
     @DataProvider
     Object[][] prettyArrayTestDP() {
-        String emptyHistogram = "    ----------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s t u v w x y z";
+        String emptyHistogram = "    ---------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s t u v w x y z";
         return new Object[][] {
             {null, emptyHistogram},
             {"", emptyHistogram},
 
-            {"a",        "1 | *                                                  \n    ----------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s tt u v w x y z"},
-            {"abra",     "2 | *                                                  \n1 | * *                                *               \n    ----------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s tt u v w x y z"},
+            {"a",        "1 | *                                                  \n    ---------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s t u v w x y z"},
+            {"abra",     "2 | *                                                  \n1 | * *                               *                \n    ---------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s t u v w x y z"},
             //            {"dorian",   "2 |   *                                                \n1 |   *   * *                                          \n    ----------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s tt u v w x y z"},
             //            {"wasabi",   "2 |   *                                                \n1 |   * * * * * *     *                                \n    ----------------------------------------------------\n    a b c d e f g h i j k l m n o p q r s tt u v w x y z"},
         };
