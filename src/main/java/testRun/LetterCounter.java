@@ -2,6 +2,30 @@ package testRun;
 
 public class LetterCounter {
 
+
+    public static String sideHistogram(String in) {
+        int[] countArray = count(in);
+        StringBuffer sb = new StringBuffer();
+
+        for (int i = 0; i < 26; i++) {
+            sb.append(histogramLine(countArray, i));
+        }
+        return sb.toString();
+    }
+
+    public static String histogramLine(int[] countArray, int i) {
+        char letter = (char)(97 + i);
+        return String.format("%c|%s\n",letter, stars(countArray[i]));
+    }
+
+    private static String stars(int i) {
+        StringBuffer sb = new StringBuffer();
+        for (int j = 1; j <= i; j++) {
+            sb.append(" *");
+        }
+        return sb.toString();
+    }
+
     public static int[] count(String s) {
 
         int countArray[] = new int[26];
@@ -13,10 +37,10 @@ public class LetterCounter {
                 countArray[digit]++;
             }
         }
-
         return countArray;
     }
-	public static String prettyArray(String in) {
+
+    public static String prettyArray(String in) {
         int[] countArray = count(in);
         StringBuffer sb = new StringBuffer();
 
@@ -26,7 +50,7 @@ public class LetterCounter {
             }
         }
         sb.append("    ---------------------------------------------------\n")
-          .append("    a b c d e f g h i j k l m n o p q r s t u v w x y z");
+        .append("    a b c d e f g h i j k l m n o p q r s t u v w x y z");
 
         return sb.toString();
     }

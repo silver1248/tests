@@ -6,14 +6,35 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import lombok.Value;
-import testRun.DigitCounterTest.ArrayHolder;
 
 public class LetterCounterTest {
+    
+    @Test (dataProvider = "sideHistogramTestDP")
+    public void sideHistogramTest(String in, String expected) {
+        String actual = LetterCounter.sideHistogram(in);
+        assertEquals(actual.length(), expected.length());
+
+        assertEquals(actual, expected);
+    }
+
+    @DataProvider
+    Object[][] sideHistogramTestDP() {
+        String emptyHistogram = "a|\nb|\nc|\nd|\ne|\nf|\ng|\nh|\ni|\nj|\nk|\nl|\nm|\nn|\no|\np|\nq|\nr|\ns|\nt|\nu|\nv|\nw|\nx|\ny|\nz|\n";
+        return new Object[][] {
+            {null, emptyHistogram},
+            {"", emptyHistogram},
+
+            {"a", "a| *\nb|\nc|\nd|\ne|\nf|\ng|\nh|\ni|\nj|\nk|\nl|\nm|\nn|\no|\np|\nq|\nr|\ns|\nt|\nu|\nv|\nw|\nx|\ny|\nz|\n"},
+            {"abra", "a| * *\nb| *\nc|\nd|\ne|\nf|\ng|\nh|\ni|\nj|\nk|\nl|\nm|\nn|\no|\np|\nq|\nr| *\ns|\nt|\nu|\nv|\nw|\nx|\ny|\nz|\n"},
+            {"dorian", "a| *\nb|\nc|\nd| *\ne|\nf|\ng|\nh|\ni| *\nj|\nk|\nl|\nm|\nn| *\no| *\np|\nq|\nr| *\ns|\nt|\nu|\nv|\nw|\nx|\ny|\nz|\n"},
+        };
+    }
+    
     @Test 
     (dataProvider = "prettyArrayTestDP")
     public void prettyArrayTest(String in, String expected) {
-    	String actual = LetterCounter.prettyArray(in);
-    	System.out.println(String.format("in%n%s%nactual:%n%s%nexpected:%n%s%n%n", in, actual, expected));
+        String actual = LetterCounter.prettyArray(in);
+        System.out.println(String.format("in%n%s%nactual:%n%s%nexpected:%n%s%n%n", in, actual, expected));
         assertEquals(actual, expected);
     }
 
@@ -32,7 +53,7 @@ public class LetterCounterTest {
     }
 
     @Test(dataProvider="countTestDP")
-    public void countTest(String in ,ArrayHolder expected) {
+    public void countTest(String in, ArrayHolder expected) {
         assertEquals(LetterCounter.count(in), expected.getArray());
     }
 
