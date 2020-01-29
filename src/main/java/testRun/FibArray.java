@@ -8,14 +8,12 @@ public class FibArray {
     public FibArray(int size) {
         fibArray = new int[size];
 
-        int nMinusTwo = 0;
-        int nMinusOne = 1;
-
         for (int n = 0; n < size; n++) {
-            int newFib = nMinusOne + nMinusTwo;
-            nMinusTwo = nMinusOne;
-            nMinusOne = newFib;
-            fibArray[n] = newFib;
+            if (n <= 1) {
+                fibArray[n] = n;
+            } else {
+                fibArray[n] = fibArray[n - 2] + fibArray[n - 1];
+            }
         }
     }
 
