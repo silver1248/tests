@@ -22,14 +22,14 @@ public class EvenNumIteratorTest {
 
     @DataProvider
     Object[][] nextTestDP() {
-        EvenNumIterator fi = new EvenNumIterator();
+        EvenNumIterator evi = new EvenNumIterator();
         return new Object[][] {
-            {fi, 0},
-            {fi, 2},
-            {fi, 4},
-            {fi, 6},
-            {fi, 8},
-            {fi, 10},
+            {evi, 0},
+            {evi, 2},
+            {evi, 4},
+            {evi, 6},
+            {evi, 8},
+            {evi, 10},
         };
     }
 }

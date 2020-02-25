@@ -16,5 +16,4 @@ public class EvenNumIterator implements Iterator<Integer> {
 
         return evenInt += 2;
     }
-
 }
