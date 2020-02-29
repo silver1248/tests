@@ -2,9 +2,9 @@ package testRun;
 
 import java.util.Iterator;
 
-public class PiDigitsIterator implements Iterator<String> {
+public class PiDigitsIterator implements Iterator<Integer> {
 
-    int i = 1;
+    int i = 0;
 
     @Override
     public boolean hasNext() {
@@ -16,14 +16,9 @@ public class PiDigitsIterator implements Iterator<String> {
     }
 
     @Override
-    public String next() {
-        String pi = "3.141592653";
-        String digit;
-        if (pi.substring(i, i + 1) == ".") {
-            digit = pi.substring(i, i++);
-        } else {
-            digit = pi.substring(i++, i + 2);
-        }
-        return digit;
+    public Integer next() {
+        int[] pi = new int[]{3,1,4,1,5,9,2,6,9,3,5};
+        
+        return pi[i++];
     }
 }
