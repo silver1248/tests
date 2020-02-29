@@ -8,12 +8,9 @@ public class PiDigitsIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        if(i < 10) {
-            return true;
-        } else {
-            return false;
+      return i < 10;
         }
-    }
+
 
     @Override
     public Integer next() {
