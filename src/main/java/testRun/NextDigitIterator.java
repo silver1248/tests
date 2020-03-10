@@ -18,7 +18,7 @@ public class NextDigitIterator implements Iterator {
         }
         int[] digits = new int[]{};
         for (int j = 0; j < string.length(); i++) {
-            if (j != string.length() - 1) {
+            if (j < length - 1) {
                 digits[j] = Integer.parseInt(string.substring(j, j + 1));
             } else {
                 digits[j] = Integer.parseInt(string.substring(j));
