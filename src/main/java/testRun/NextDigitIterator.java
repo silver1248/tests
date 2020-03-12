@@ -16,14 +16,17 @@ public class NextDigitIterator implements Iterator {
         if (string.indexOf('.') != -1) {
             string = string.substring(0, string.indexOf('.')) + string.substring(string.indexOf('.') + 1);
         }
-        int[] digits = new int[]{};
+        int[] digits = new int[string.length()];
         for (int j = 0; j < string.length(); i++) {
-            if (j < length - 1) {
-                digits[j] = Integer.parseInt(string.substring(j, j + 1));
+            if (j != digits.length - 1) {
+                String s2 = string.substring(j, j + 1);
+                int digit = Integer.parseInt(s2);
+                digits[j] = digit;
             } else {
-                digits[j] = Integer.parseInt(string.substring(j));
+                j = digits.length - 1;
+                String num = string.substring(j);
+                digits[j] = Integer.parseInt(num);
             }
-
         }
         return digits;
     }
