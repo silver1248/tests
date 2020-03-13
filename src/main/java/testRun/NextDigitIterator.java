@@ -13,9 +13,10 @@ public class NextDigitIterator implements Iterator {
     int length;
 
     public int[] stringToArray(String string) {
-        if (string.indexOf('.') != -1) {
-            string = string.substring(0, string.indexOf('.')) + string.substring(string.indexOf('.') + 1);
+        if (string == null || string == "") {
+            return digits;
         }
+        decimalRemoval(string);
         int[] digits = new int[string.length()];
         for (int j = 0; j < string.length(); i++) {
             if (j != digits.length - 1) {
@@ -31,9 +32,20 @@ public class NextDigitIterator implements Iterator {
         return digits;
     }
 
+    private String decimalRemoval(String string) {
+        for (int j = 0; j < string.length() - 1; j++) {
+            if (string.indexOf('.') != -1) {
+                string = string.substring(0, string.indexOf('.')) + string.substring(string.indexOf('.') + 1);
+            } else {
+                break;
+            }
+        }
+        return string;
+    }
+
     @Override
     public boolean hasNext() {
-        return i < length;
+        return i < digits.length;
     }
 
     @Override
