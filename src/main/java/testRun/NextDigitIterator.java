@@ -6,7 +6,7 @@ import lombok.Value;
 import lombok.experimental.NonFinal;
 
 @Value
-public class NextDigitIterator implements Iterator {
+public class NextDigitIterator implements Iterator<Integer> {
 
 	@NonFinal int i = 0;
 	int[] digits;
@@ -25,16 +25,16 @@ public class NextDigitIterator implements Iterator {
 			return digits;
 		}
 	}
+	
+	@Override
+	public Integer next() {
+		return digits[i++];
+	}
 
 	@Override
 	public boolean hasNext() {
 		boolean stop =  i < digits.length;
 		return stop;
-	}
-
-	@Override
-	public Object next() {
-		return digits[i++];
 	}
 
 	public NextDigitIterator(String string) {
