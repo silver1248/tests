@@ -16,7 +16,7 @@ public class DigitCounterTest {
     }
 
     @Value
-    private static class ArrayHolder {
+    public static class ArrayHolder {
         int[] array;
         
         public static ArrayHolder of(int n0, int n1, int n2, int n3, int n4, int n5, int n6, int n7, int n8, int n9) {

@@ -5,7 +5,7 @@ import static java.lang.String.format;
 public class Fibonacci {
 
     public static void main(String[] args) {
-        long nMinusTwo = 1;
+        long nMinusTwo = 0;
         long nMinusOne = 1;
 
         long n = 1;
