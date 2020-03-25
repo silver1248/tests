@@ -24,15 +24,20 @@ public class StringRepititionIteratorTest {
     Object[][] TestDP() {
         return new Object[][] {
             // nothing in, nothing out. handles null
+            {null, 0, new char[] {}},
+            {"", 0, new char[] {}},
+
             {null, 5, new char[] {}},
             {"", 2, new char[] {}},
+
+            {"333333", 0, new char[] {}},
 
             // same num any amount of times
             {".", 1, new char[] {'.'}},
             {"5", 8, new char[] {'5' ,'5' ,'5' ,'5' ,'5' ,'5' ,'5' ,'5'}},
-            {"333333", 0, new char[] {}},
 
             // just tests
+            {"5-", 1, new char[] {'5', '-'}},
             {"5-", 4, new char[] {'5', '-', '5', '-', '5', '-', '5', '-'}},
             {"4530", 2, new char[] {'4', '5', '3', '0','4', '5', '3', '0'}},
             {".5683.", 4 , new char[] {'.', '5', '6', '8', '3', '.', '.', '5', '6', '8', '3', '.', '.', '5', '6', '8', '3', '.', '.', '5', '6', '8', '3', '.'}},

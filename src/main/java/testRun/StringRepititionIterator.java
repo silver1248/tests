@@ -5,10 +5,7 @@ import java.util.Iterator;
 public class StringRepititionIterator implements Iterator <Character> {
 
     int i = 0;
-    final int length;
     final char[] charArray;
-
-
 
     private static char[] stringToRepeatedArray(String string, int multiple) {
         StringBuffer multiplying = new StringBuffer();
@@ -34,6 +31,5 @@ public class StringRepititionIterator implements Iterator <Character> {
 
     public StringRepititionIterator(String string, int times) {
         this.charArray = stringToRepeatedArray(string, times);
-        this.length = charArray.length;
     }
 }
