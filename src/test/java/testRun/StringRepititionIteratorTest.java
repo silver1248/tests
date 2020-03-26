@@ -27,12 +27,14 @@ public class StringRepititionIteratorTest {
             {null, 0, new char[] {}},
             {"", 0, new char[] {}},
 
+            // multiple groups of nothing
             {null, 5, new char[] {}},
             {"", 2, new char[] {}},
 
+            // 0 groups of something
             {"333333", 0, new char[] {}},
 
-            // same num any amount of times
+            // same character any amount of times
             {".", 1, new char[] {'.'}},
             {"5", 8, new char[] {'5' ,'5' ,'5' ,'5' ,'5' ,'5' ,'5' ,'5'}},
 
