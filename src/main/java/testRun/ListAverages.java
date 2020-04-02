@@ -13,13 +13,16 @@ public class ListAverages {
     //        list = list.reverse();
     //        System.out.println(list);
     //    }
-    public static List<Float> averageList(List numList) {
+    public static List<Float> averageList(List<Integer> numList) {
         List<Float> floatList = List.empty();
         int length = numList.length();
         float toBeAveraged = 0;
-        
+        if (numList.equals(null) || numList.equals(List.empty())) {
+            return floatList;
+        }
+
         for (int i = 0; i < length; i++) {
-            if (i > 0) {
+            if (i > 1) {
                 for (int j = 0; j < i; j++) {
                     toBeAveraged += (float) numList.get(j);
                 }
