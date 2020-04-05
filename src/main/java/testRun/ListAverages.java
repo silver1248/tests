@@ -15,24 +15,21 @@ public class ListAverages {
     //    }
     public static List<Float> averageList(List<Integer> numList) {
         List<Float> floatList = List.empty();
-        int length = numList.length();
-        float toBeAveraged = 0;
-        if (numList.equals(null) || numList.equals(List.empty())) {
+        if (null == numList || numList.isEmpty()) {
             return floatList;
-        }
+        } else {
+            int length = numList.length();
 
-        for (int i = 0; i < length; i++) {
-            if (i > 1) {
-                for (int j = 0; j < i; j++) {
+            for (int i = 1; i < length; i++) {
+                float toBeAveraged = 0;
+                for (int j = 0; j <= i; j++) {
                     toBeAveraged += (float) numList.get(j);
                 }
+                floatList = floatList.prepend(toBeAveraged / (i + 1));
             }
-            floatList.prepend(toBeAveraged / i - 1);
-            toBeAveraged = 0;
+            return floatList.reverse();
         }
-        return floatList.reverse();
     }
-
     //    public static void main(String[] args) {
     //        System.out.println(smallerString(5));
     //        System.out.println(tofloatList(smallerString(5)));
