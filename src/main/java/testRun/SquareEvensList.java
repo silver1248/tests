@@ -1,23 +1,19 @@
 package testRun;
 
+import java.util.stream.Collectors;
+
 import io.vavr.collection.List;
 
 public class SquareEvensList {
 
 
     public static List<Integer> squareEm(List<Integer> removeOdds) {
-        List<Integer> squared = List.empty();
-
-        if (null == removeOdds || removeOdds.isEmpty()) {
-            return squared;
+        if (null == removeOdds) {
+            return List.empty();
         } else {
-            for (int value : removeOdds) {
-                if (value % 2 == 0) {
-                    int squaredThing = (int) Math.pow(value, 2);
-                    squared = squared.prepend(squaredThing);
-                }
-            }
-            return squared.reverse();
+            return removeOdds
+                    .filter(x -> ((x*x) % 2) == 0)
+                    .map(x -> x * x);
         }
     }
 
