@@ -23,7 +23,7 @@ public class ListAveragesTest {
             {List.of(1,2), List.of(1.5f)},
             {List.of(1,2,3), List.of(1.5f,2.0f)},
 
-            {List.of(5,8,4), List.of(6.5f, 5.6666665f)},
+            {List.of(5,8,4  ), List.of(6.5f, 5.6666665f)},
             {List.of(1,2,4,4,5), List.of(1.5f,2.3333333f,2.75f,3.2f)},
         };
     }
