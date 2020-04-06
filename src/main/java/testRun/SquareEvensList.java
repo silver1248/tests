@@ -12,8 +12,9 @@ public class SquareEvensList {
             return squared;
         } else {
             for (int i = 0; i < removeOdds.length(); i++) {
-                if (removeOdds.get(i) % 2 == 0) {
-                    int squaredThing = removeOdds.get(i) * removeOdds.get(i);
+                int value = removeOdds.get(i);
+                if (value % 2 == 0) {
+                    int squaredThing = (int) Math.pow(value, 2);
                     squared = squared.prepend(squaredThing);
                 }
             }
