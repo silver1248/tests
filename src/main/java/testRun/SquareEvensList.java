@@ -11,8 +11,7 @@ public class SquareEvensList {
         if (null == removeOdds || removeOdds.isEmpty()) {
             return squared;
         } else {
-            for (int i = 0; i < removeOdds.length(); i++) {
-                int value = removeOdds.get(i);
+            for (int value : removeOdds) {
                 if (value % 2 == 0) {
                     int squaredThing = (int) Math.pow(value, 2);
                     squared = squared.prepend(squaredThing);
