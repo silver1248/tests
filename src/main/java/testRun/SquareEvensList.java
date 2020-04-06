@@ -21,10 +21,4 @@ public class SquareEvensList {
         }
     }
 
-    //    public static List<Integer> squareEm(List<Integer> squareIt) {
-    //        List<Integer> squared = squareIt;
-    //        for (int i = 0; i > squareIt.length(); i++) {
-    //        }
-    //        return null;
-    //    }
 }
