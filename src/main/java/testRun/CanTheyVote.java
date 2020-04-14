@@ -36,7 +36,7 @@ public class CanTheyVote {
 //     */
 //    public static String canVote1(List<Tuple2> info) {
 //        List<String> newString = List.empty();
-//        for (int i = 0; i < info.length(); i++) {
+//        for (int i = 0; i < info.length(); i++) { 
 //            Integer bDay = (Integer) info.get(i)._1;
 //            String name = (String) info.get(i)._2;
 //            if (2020 - bDay >= 18) {

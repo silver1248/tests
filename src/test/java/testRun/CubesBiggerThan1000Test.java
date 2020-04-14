@@ -11,7 +11,7 @@ public class CubesBiggerThan1000Test {
 
     @Test(dataProvider="numsOverCubedThousandTestDP")
     public void averageListTest(List<Integer> in, String expected) {
-        assertEquals(CubesBiggerThan1000.numsOverCubedThousand(in), expected);
+        assertEquals(CubesBiggerThan1000.numsCubedOverThousand(in), expected);
     }
 
     @DataProvider
