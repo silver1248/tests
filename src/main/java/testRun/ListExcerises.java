@@ -48,7 +48,7 @@ public class ListExcerises {
                 .filter(x -> x == 'l')
                 .length();
     }
-    
+
     public static List<Integer> addingTuples(List<Tuple2<Integer, Integer>> tupleList) {
         return tupleList.map(x -> (Integer) x._1 + x._2()).filter(x -> x % 2 == 0);
     }
@@ -58,10 +58,16 @@ public class ListExcerises {
                 .sorted((Computer x, Computer y) -> ((Long)x.getRamSize()).compareTo( y.getRamSize()))
                 .map(x -> x.getRamSize() + x.getHardDriveSize());
     }
-    
+
     public static List<String> wierdNameSorting(List<String> stringList) {
         return stringList.map(s -> Tuple.of(s,(s.length()) * (s.length()) * (s.length()) - (s.toLowerCase().charAt(0) - ('a' - 1))))
                 .filter(t -> t._2 != 17)
+                .sorted((Tuple2<String, Integer> t1, Tuple2<String, Integer> t2) -> (t1._2).compareTo(t2._2))
+                .map(t -> t._1);
+    }
+
+    public static List<String> wierdNameSorting2(List<String> stringList) {
+        return stringList.map(s -> Tuple.of(s,(s.length()) * (s.length()) * (s.length()) - (s.toLowerCase().charAt(0) - ('a' - 1) + (s.toLowerCase().charAt(stringList.length() - 1)  - ('a' - 1)))))
                 .sorted((Tuple2<String, Integer> t1, Tuple2<String, Integer> t2) -> (t1._2).compareTo(t2._2))
                 .map(t -> t._1);
     }

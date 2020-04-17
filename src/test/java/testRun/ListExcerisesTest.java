@@ -133,4 +133,22 @@ public class ListExcerisesTest {
             {List.of("Daniel", "John"), List.of("John", "Daniel")},
         };
     }
+    
+    @Test(dataProvider="wierdNameSorting2TestDP")
+    public void wierdNameSorting2Test(List<String> in, List<String> expected) {
+        assertEquals(ListExcerises.wierdNameSorting2(in), expected);
+    }
+
+    @DataProvider
+    Object[][] wierdNameSorting2TestDP() {
+        return new Object[][] {
+            {List.of(), List.of()},
+
+            {List.of("Joe"), List.of("Joe")},
+            {List.of("Kip", "Daniel"), List.of("Kip", "Daniel")},
+            {List.of("Joe", "Bob", "George"), List.of("Joe", "Bob", "George")},
+            {List.of("Bob", "Joe", "George"), List.of("Joe", "Bob", "George")},
+            {List.of("Daniel", "John"), List.of("John", "Daniel")},
+        };
+    }
 }
