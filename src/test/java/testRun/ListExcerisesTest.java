@@ -53,16 +53,16 @@ public class ListExcerisesTest {
     @DataProvider
     Object[][] sumOfThreeEvensAfterFiveDP() {
         return new Object[][] {
-//            {List.of(), 0},
-//
-//            {List.of(5), 0},
+            //            {List.of(), 0},
+            //
+            //            {List.of(5), 0},
             {List.of(5, 3, 8, 1, 5, 5, 2, 5, 1, 5, 2, 7), 2},
-//            {List.of(6, 8, 1, 8, 7, 5, 2, 6, 8), 16},
-//            {List.of(6, 5, 8, 7, 2, 6, 8), 16},
-//            {List.of(6, 8, 1, 8, 7, 5, 2, 7, 8, 5, 8,  6, 8), 16},
+            //            {List.of(6, 8, 1, 8, 7, 5, 2, 6, 8), 16},
+            //            {List.of(6, 5, 8, 7, 2, 6, 8), 16},
+            //            {List.of(6, 8, 1, 8, 7, 5, 2, 7, 8, 5, 8,  6, 8), 16},
         };
     }
-    
+
     @Test(dataProvider="NumOfLsAfterGDP")
     public void numOfLsAfterGTest(List<Character> in, Integer expected) {
         assertEquals(ListExcerises.numOfLsAfterG(in), expected);
@@ -79,12 +79,12 @@ public class ListExcerisesTest {
             {List.of('s', 'h', 'c', 'h', 'x', 'g', 'a', 'g', 'x', 'm', 'a', 'i', 'e', 'n'), 0},
         };
     }
-    
+
     @Test(dataProvider="addingTuplesDP")
     public void addingTuplesTest(List<Tuple2<Integer, Integer>> in, List<Integer> expected) {
         assertEquals(ListExcerises.addingTuples(in), expected);
     }
-    
+
     @DataProvider
     Object[][] addingTuplesDP() {
         return new Object[][] {
@@ -95,16 +95,16 @@ public class ListExcerisesTest {
             {List.of(Tuple.of(101, 901)), List.of(1002)}
         };
     }
-    
+
     public Computer comp(long ram, long hd) {
         return new PC("","",ram,hd);
     }
-    
+
     @Test(dataProvider="sortByRamDP")
     public void sortByRamTest(List<Computer> in, List<Long> expected) {
         assertEquals(ListExcerises.sortByRam(in), expected);
     }
-    
+
     @DataProvider
     Object[][] sortByRamDP() {
         return new Object[][] {
@@ -114,7 +114,7 @@ public class ListExcerisesTest {
             {List.of(comp(124, 1024), comp(125, 1080)), List.of(1148l, 1205l)},
         };
     }
-    
+
     @Test(dataProvider="wierdNameSortingTestDP")
     public void wierdNameSortingTest(List<String> in, List<String> expected) {
         assertEquals(ListExcerises.wierdNameSorting(in), expected);
@@ -133,7 +133,7 @@ public class ListExcerisesTest {
             {List.of("Daniel", "John"), List.of("John", "Daniel")},
         };
     }
-    
+
     @Test(dataProvider="wierdNameSorting2TestDP")
     public void wierdNameSorting2Test(List<String> in, List<String> expected) {
         assertEquals(ListExcerises.wierdNameSorting2(in), expected);
@@ -151,4 +151,115 @@ public class ListExcerisesTest {
             {List.of("Daniel", "John"), List.of("John", "Daniel")},
         };
     }
+
+    @Test(dataProvider="wierdNameSorting3TestDP")
+    public void wierdNameSorting3Test(List<Tuple2<String, String>> in, List<String> expected) {
+        assertEquals(ListExcerises.wierdNameSorting3(in), expected);
+    }
+
+    @DataProvider
+    Object[][] wierdNameSorting3TestDP() {
+        return new Object[][] {
+            {List.of(), List.of()},
+
+            {List.of(tup("John", "Doe")), List.of("John Doe")},
+            {List.of(tup("Kip", "Abraham")), List.of("Kip Abraham")},
+            {List.of(tup("Jackson", "Abe"), tup("John", "Doe")), List.of("John Doe")},
+            {List.of(tup("John", "Doe"), tup("Jackson", "Abe")), List.of("John Doe")},
+            {List.of(tup("Daniel", "John")), List.of("Daniel John")},
+        };
+    }
+
+    public Tuple2<String, String> tup(String s1, String s2) {
+        return Tuple.of(s1,s2);
+    }
+
+    @Test(dataProvider="numOfPresidentDP")
+    public void numOfPresidentTest(List<String> in1, List<Integer> in2, List<Tuple2<String, Integer>> expected) {
+        assertEquals(ListExcerises.numOfPresident(in1, in2), expected);
+    }
+
+    @DataProvider
+    Object[][] numOfPresidentDP() {
+        return new Object[][] {
+            {List.of(), List.of(), List.of()},
+
+            {List.of("J.A.","B.O.","G.W."), List.of(2, 44, 1), List.of(Tuple.of("J.A.", 2), Tuple.of("B.O.", 44), Tuple.of("G.W.", 1))},
+            {List.of("J.A.","B.O.","G.W.","R.N."), List.of(2, 44, 1), List.of(Tuple.of("J.A.", 2), Tuple.of("B.O.", 44), Tuple.of("G.W.", 1))},
+            {List.of("J.A.","B.O.","G.W."), List.of(2, 44, 1, 83), List.of(Tuple.of("J.A.", 2), Tuple.of("B.O.", 44), Tuple.of("G.W.", 1))},
+        };
+    }
+
+    @Test(dataProvider="numOfPresidentStringDP")
+    public void numOfPresidentStringTest(List<Tuple2<String, Integer>> in, List<String> expected) {
+        assertEquals(ListExcerises.numOfPresidentString(in), expected);
+    }
+
+    @DataProvider
+    Object[][] numOfPresidentStringDP() {
+        return new Object[][] {
+            {List.of(), List.of()},
+
+            {List.of(Tuple.of("J.A.", 2), Tuple.of("B.O.", 44), Tuple.of("G.W.", 1)), List.of("J.A. was the 2th president", "B.O. was the 44th president", "G.W. was the 1th president")},
+        };
+    }
+
+    @Test(dataProvider="numOfPresidentStringToListsDP")
+    public void numOfPresidentStringToListsTest(List<String> in, Tuple2<List<String>, List<Integer>> expected) {
+        assertEquals(ListExcerises.numOfPresidentStringToLists(in), expected);
+    }
+
+    @DataProvider
+    Object[][] numOfPresidentStringToListsDP() {
+        return new Object[][] {
+            {List.of(), Tuple.of(List.of(), List.of())},
+
+            {List.of("J.A. was the 2th president", "B.O. was the 44th president", "G.W. was the 1th president"), Tuple.of(List.of("J.A.","B.O.","G.W."), List.of(2, 44, 1))},
+            {List.of("J.A. was the 2th president", "B.O. was the 44th president", "George was the th president"), Tuple.of(List.of("J.A.","B.O.", "George"), List.of(2, 44, 0))},
+        };
+    }
+
+    @Test(dataProvider="parseStringDP")
+    public void parseStringTest(String in, Tuple2<String, Integer> expected) {
+        assertEquals(ListExcerises.parseString(in), expected);
+    }
+
+    @DataProvider
+    Object[][] parseStringDP() {
+        return new Object[][] {
+            {"J.A. was the 2th president", Tuple.of("J.A.", 2)},
+            {"George was the th president", Tuple.of("George", 0)},
+        };
+    }
+
+    @Test
+    public void parseStringTest() {
+        Tuple2<String, Integer> foo1 = ListExcerises.parseString("bob was the 27th president.");
+        Tuple2<String, Integer> foo2 = ListExcerises.parseString("washington was the 1th president.");
+        Tuple2<String, Integer> foo3 = ListExcerises.parseString("alice was the 24437th president.");
+        Tuple2<String, Integer> foo4 = ListExcerises.parseString("beth was the 24437th president.");
+        System.out.println(foo1.toString() + foo2 + foo3 + foo4);
+    }
+
+    @Test(dataProvider="numOfCharsWithFlatMapDP")
+    public void numOfCharsWithFlatMapTest(List<List<String>> in, Integer expected) {
+        assertEquals(ListExcerises.numOfCharsWithFlatMap(in), expected);
+    }
+
+    @DataProvider
+    Object[][] numOfCharsWithFlatMapDP() {
+        return new Object[][] {
+            {List.of(List.of()), 0},
+            {List.of(List.of("")), 0},
+
+            {List.of(List.of(), List.of("Hello")), 5},
+            {List.of(List.of(""), List.of("Hello")), 5},
+
+            {List.of(List.of("Hello", "world")), 10},
+            {List.of(List.of("My", "name", "is", "Inigo", "Montoya"), List.of("You", "killed", "my", "father")), 37},
+            {List.of(List.of("Hello"), List.of(""), List.of(""), List.of(""), List.of("World")), 10},
+        };
+    }
+
+
 }
